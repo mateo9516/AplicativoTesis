@@ -1,0 +1,132 @@
+{% extends 'base.html' %} {% block contenido %} {% load static %}
+<header>
+  <nav class="bg-dark row">
+    <div class="imgnav col-1">
+      <a class="" href="">
+        <img src="{% static 'img/Escudo.jpg' %}" width="50px" height="70px" />
+      </a>
+    </div>
+    <div class="Tamanobr col-11 mt-4 mb-4">
+      <div class="text-center">
+        <form id="theFront" method="POST">
+          <div class="input-group">
+            {% csrf_token %}
+            <input
+              type="text"
+              class="form-control inputBR fuente col-6"
+              name="busqueda"
+              placeholder="¿Qué desea buscar?"
+              aria-label=""
+              aria-describedby="basic-addon1"
+            />
+            <select
+              class="form-select bg-white borderBot fuente"
+              id="modeloE"
+              name="modeloE"
+            >
+              <option value="word2vecCbow255.model">Word2VCbow</option>
+              <option value="W2VSkipGram16.model">Word2VSkip</option>
+              <option value="word2vec255.model">Word2V</option>
+            </select>
+            <div class="input-group-prepend">
+              <button class="btn btn-success botonresul fuente" onclick="spinner()" type="submit">
+                Buscar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="mt-1">
+  <table class="table table-responsive TablaTama">
+    <tbody>
+      <tr class="row">
+        {% if resus != "Vacio" %} {% for res,dir,Palabras in resoluciones %}
+        <th class="col-3 Tabular">
+          <a class="nombreResu ml-3" href="{{dir}}" target="_blank"
+            ><p>
+              {{ res }}  <img src="{% static 'img/download.jpg' %}" width="20px" height="20px">
+            </p>
+            </a
+          >
+        </th>
+        <td class="col-7 Tabular">
+          <!--Inicio de acordion palabras clave -->
+          <div id="accordion">
+            <div class="card">
+              <button
+                class="btn btn-dark collapsed estiloClaves"
+                data-toggle="collapse"
+                data-target="#{{ res }}"
+                aria-expanded="false"
+                aria-controls="{{ res }}"
+              >
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">Palabras clave.</h5>
+                </div>
+              </button>
+
+              <div
+                id="{{ res }}"
+                class="collapse"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body EstiloDesple">{{ Palabras }}</div>
+              </div>
+            </div>
+          </div>
+          <!-- Fin de acordion palabvras clave -->
+        </td>
+        <td class="col-1 text-center">
+          <a
+            id="L{{res}}"
+            class="transp"
+            type="button"
+            onclick="Like(this,'{{ res }}')"
+          >
+            <img src="{% static 'img/gusta.jpg' %}" alt="" />
+          </a>
+          <img
+            id="mm{{res}}"
+            src="{% static 'img/ok.jpg' %}"
+            style="display: none"
+            width="50px"
+            height="50px"
+          />
+        </td>
+        <td class="col-1 text-center">
+          <a
+            id="g{{res}}"
+            class="transp"
+            type="button"
+            onclick="Dislike(this,'{{ res }}')"
+          >
+            <img src="{% static 'img/nogusta.jpg' %}" alt="" />
+          </a>
+          <p id="tt{{res}}" style="display: none; font-weight: 700"></p>
+        </td>
+        {% endfor %} {% else %}
+        <p>No hay resoluciones</p>
+        {% endif %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p id="SuperAyuda" style="display: none">YA</p>
+<p id="SuperAyud" style="display: none">YA</p>
+<button id="clicksolo" type="button" style="display: none"></button>
+<footer class="footer bg-dark py-4">
+  <div class="container text-center">
+    <span class="text-muted footerT">
+      Muchas gracias a todos por colaborar ^-^
+    </span>
+    <br />
+    <span class="text-muted footerT">By Mateo Echeverry C. y Camilo Rebellon G.</span>
+  </div>
+</footer>
+{% endblock contenido %} {% block Js %}
+<script type="text/javascript" src="{% static 'js/actualizar.js' %}"></script>
+{% endblock Js %}

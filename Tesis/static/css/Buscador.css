@@ -1,0 +1,190 @@
+.transp{
+    background-color: transparent !important;
+    outline: none;
+    cursor: pointer;
+    display: block;
+}
+
+.nombreResu{
+    text-decoration: none !important;
+    color: black;
+    display: grid;
+}
+
+.tamanoB {
+  max-width: 700px;
+}
+
+.tamanoSelect{
+  max-width: 200px !important;
+}
+
+.fuente {
+  font-weight: 500;
+  font-size: large;
+  border-width: 2px;
+}
+
+.inputB {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-color: black;
+  border-right: rgb(255, 255, 255);
+}
+
+.inputBR {
+  border-top-left-radius: 30px !important;
+  border-bottom-left-radius: 30px !important;
+  border-color: white;
+  border-right: rgb(0, 0, 0) !important;
+}
+
+.selectB {
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+}
+
+.buscadorR {
+  max-width: 700px;
+  float: left;
+}
+
+.imgnav {
+  margin-left: 15px !important;
+  padding-top: 15px !important;
+}
+
+.footerT {
+  font-size: large;
+  color: rgb(153, 152, 152) !important;
+}
+
+.TituloT {
+  color: rgb(185, 184, 184) !important;
+  font-size: larger;
+  font-weight: 600;
+}
+
+.Tamanobr {
+  max-width: 1000px !important;
+  position: relative;
+  margin-top: -30px;
+}
+
+.botonAyuda {
+  float: right;
+}
+
+.TituloModal {
+  color: black !important;
+}
+
+.TextoModal {
+  float: left;
+  text-align: justify;
+}
+
+.botonresul {
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+  border-color: white !important;
+}
+
+.borderBot {
+  border-color: white !important;
+  border-left: black !important;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.Tabular {
+  text-align: left;
+}
+
+.estiloClaves {
+  text-align: left;
+}
+
+.EstiloDesple {
+  text-align: left;
+  font-size: smaller;
+  font-weight: 500;
+  color: rgb(78, 78, 77);
+}
+
+.TablaTama {
+  min-width: 700px;
+}
+
+/* Estilos spinner */
+
+.textoSpinner {
+  margin-top: -80px !important;
+  z-index: 5;
+  font-size: x-large;
+  color: white;
+  font-weight: 700;
+}
+
+.procesar {
+  background-color: rgba(0, 0, 0, 0.671);
+  z-index: 5;
+  width: 100%;
+  height: 1000000vh;
+  position: fixed;
+}
+
+.spinner {
+  margin: 100px auto;
+  margin-top: 18%;
+  margin-left: 48%;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}

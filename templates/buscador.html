@@ -1,0 +1,128 @@
+{% extends 'base.html' %} {% block contenido %} {% load static %}
+<header class="bg-dark py-3">
+  <div class="container-fluid text-center">
+    <div class="TituloT py-1">
+      Desarrollo de un prototipo para el acceso a la información contenida en
+      las resoluciones <br />
+      expedidas por la Universidad del Valle.
+
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-success mb-5 botonAyuda"
+        data-toggle="modal"
+        data-target="#Aviso"
+      >
+        Encuesta
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="Aviso"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="AvisoF"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title TituloModal" id="AvisoF">Informacion</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body TextoModal">
+              <p>
+                En este formulario encontrará una serie de preguntas sobre el
+                uso de la aplicacion, los cuales abarcan desde el uso hasta los
+                resultados arrojados por la misma. <br /><br />
+                Empleamos la información suministrada con el fin de proporcionar
+                una mejor experiencia, particularmente para mantener un registro
+                de los usuarios que usaron la aplicacion y asi realizar mejoras
+                en el sistema. <br /><br />
+                Esta encuesta se realiza con el fin de conocer los resultados de
+                la investigacion y asi mismo tener puntos de partida para
+                trabajos futuros y el mejoramiento de la aplicacion
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a
+                href="https://forms.gle/6rU7Df79mpah7AjU9"
+                class="btn btn-success"
+                target="_blank"
+                >Encuesta</a
+              >
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="text-center">
+  <div class="container-fluid">
+    <div class="text-center py-5">
+      <img
+        src="{% static 'img/Escudo.jpg' %}"
+        class="escudob"
+        alt="Escudo"
+        width="150px"
+        height="213px"
+        style="margin-top: 3%"
+      />
+    </div>
+    <div class="container-fluid px-5 text-center">
+      <form id="theFront" method="POST">
+        {% csrf_token %}
+        <div class="container-fluid tamanoB">
+          <div class="text-center">
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-group-text bg-white form-control inputB fuente"
+                name="busqueda"
+                placeholder="¿Qué desea buscar?"
+              />
+              <select
+                class="form-select btn-outline-dark tamanoSelect selectB fuente"
+                id="modeloE"
+                name="modeloE"
+              >
+                <option value="word2vecCbow255.model">Word2VCbow</option>
+                <option value="W2VSkipGram16.model">Word2VSkip</option>
+                <option value="word2vec255.model">Word2V</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="text-center my-5">
+          <button onclick="spinner()" type="submit" class="btn btn-dark p-2 fuente">Buscar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<footer class="footer bg-dark py-3">
+  <div class="container text-center">
+    <span class="text-muted footerT">
+      Muchas gracias a todos por colaborar ^-^
+    </span>
+    <br />
+    <span class="text-muted footerT">By Mateo Echeverry C. y Camilo Rebellon G.</span>
+  </div>
+</footer>
+{% endblock contenido %}
